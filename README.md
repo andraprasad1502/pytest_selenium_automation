@@ -14,5 +14,6 @@ Prerequisites:
 Execution steps:
 -----------------
 Go to the Project1 main folder and execute
+
 	Ex: python -m pytest --html Reports/report.html  .\testCases\test.py
  
