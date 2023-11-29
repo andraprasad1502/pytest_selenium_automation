@@ -19,13 +19,17 @@ def launch_browser(request):
         options = wb.ChromeOptions()
         if platform.system() == "Linux":
             options.add_argument('--headless')
-        _driver = wb.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        #_driver = wb.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        service = Service(r"seleniumDrivers/chromedriver.exe")
+        _driver = wb.Chrome(service=service, options=options)
         _driver.set_window_size(1920, 1080)
     elif _browser == "firefox":
         options = Options()
         if platform.system() == "Linux":
             options.headless = True
-        _driver = wb.Firefox(service=Service(GeckoDriverManager().install()), options=options)
+        #_driver = wb.Firefox(service=Service(GeckoDriverManager().install()), options=options)
+        service = Service(r"seleniumDrivers/geckodriver.exe")
+        _driver = wb.Chrome(service=service, options=options)
 
     _driver.maximize_window()
     _driver.implicitly_wait(20)
